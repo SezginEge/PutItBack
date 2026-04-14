@@ -8,7 +8,7 @@
       name="description"
       content="Privacy Policy for Put It Back, the iPhone focus timer. Covers motion access, local session storage, Firebase Analytics usage, and StoreKit purchase handling."
     >
-    <meta name="theme-color" content="#050505">
+    <meta name="theme-color" content="#000000">
     <meta name="robots" content="index,follow,max-image-preview:large">
     <link rel="canonical" href="https://putitback.app/privacy.html">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     >
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
@@ -37,14 +37,9 @@
       tailwind.config = {
         theme: {
           extend: {
-            colors: {
-              night: "#050505",
-              ink: "#f5f5f5"
-            },
+            colors: { mom: "#FF375F" },
             fontFamily: {
-              display: ["Lexend", "ui-sans-serif", "system-ui", "sans-serif"],
-              body: ["Lexend", "ui-sans-serif", "system-ui", "sans-serif"],
-              mono: ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "monospace"]
+              rounded: ['"SF Pro Rounded"', "ui-rounded", "Nunito", "system-ui", "sans-serif"]
             }
           }
         }
@@ -53,56 +48,87 @@
     <style type="text/tailwindcss">
       @layer base {
         body {
-          @apply bg-night font-body text-ink antialiased;
-          background-image: linear-gradient(180deg, #0a0a0a 0%, #050505 24%, #050505 100%);
+          @apply bg-black font-rounded text-white antialiased;
         }
       }
 
       @layer components {
-        .panel {
-          @apply rounded-[1.75rem] border border-white/10 bg-white/[0.03];
+        .ios-card {
+          @apply rounded-[28px] bg-white/[0.05] ring-1 ring-white/[0.06];
         }
 
         .eyebrow {
-          @apply inline-flex rounded-full border border-white/10 px-3 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.24em] text-white/50;
+          @apply text-[0.72rem] font-black uppercase tracking-[0.22em] text-white/45;
         }
+
+        .muted-link {
+          @apply text-white/55 transition hover:text-white;
+        }
+      }
+    </style>
+    <style>
+      body {
+        background:
+          radial-gradient(60rem 40rem at 50% -10%, rgba(255, 55, 95, 0.12), transparent 60%),
+          #000;
+        background-attachment: fixed;
       }
     </style>
   </head>
   <body>
-    <header class="border-b border-white/6">
-      <div class="mx-auto flex max-w-4xl items-center justify-between px-6 py-5">
-        <a href="index.html" class="font-display text-sm font-extrabold uppercase tracking-[0.24em] text-white">Put It Back</a>
-        <a class="text-sm text-white/55 transition hover:text-white" href="index.html">Back to home</a>
+    <header class="sticky top-0 z-40 backdrop-blur-xl bg-black/60 border-b border-white/[0.06]">
+      <div class="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
+        <a href="index.html" class="flex items-center gap-2.5">
+          <span class="grid h-9 w-9 place-items-center rounded-[10px] bg-gradient-to-br from-[#FF375F] to-[#FF1A4D] shadow-[0_6px_20px_-4px_rgba(255,55,95,0.55)]">
+            <svg viewBox="0 0 24 24" class="h-5 w-5 text-white" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6" y="2.5" width="12" height="19" rx="3"/>
+              <circle cx="12" cy="18" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </span>
+          <span class="font-rounded text-[17px] font-extrabold tracking-tight text-white">Put It Back</span>
+        </a>
+        <a class="inline-flex items-center gap-2 rounded-full bg-white/[0.08] px-4 py-2 text-[14px] font-bold text-white transition hover:bg-white/[0.12]" href="index.html">
+          <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4l-6 6 6 6"/></svg>
+          Home
+        </a>
       </div>
     </header>
 
-    <main class="mx-auto max-w-4xl px-6 py-16">
+    <main class="mx-auto max-w-3xl px-6 py-16">
       <p class="eyebrow">Privacy policy</p>
-      <h1 class="mt-6 font-display text-4xl font-black text-white">Put It Back Privacy Policy</h1>
-      <p class="mt-4 text-base leading-7 text-white/65">Effective date: April 14, 2026</p>
-      <p class="mt-4 max-w-3xl text-base leading-7 text-white/65">
+      <h1 class="mt-4 font-rounded text-[44px] font-black leading-[1.05] tracking-[-0.025em] sm:text-[56px]">Privacy Policy</h1>
+      <p class="mt-4 text-[15px] text-white/50">Effective date: April 14, 2026</p>
+      <p class="mt-6 max-w-2xl text-[17px] leading-[1.55] text-white/65">
         This page reflects the current behavior visible in the iOS app code reviewed for this website.
       </p>
 
-      <div class="mt-10 grid gap-4 sm:grid-cols-3">
-        <div class="panel p-5">
-          <p class="text-[0.68rem] font-black uppercase tracking-[0.24em] text-white/35">Motion</p>
-          <p class="mt-3 text-sm leading-6 text-white/68">Used during active focus sessions for pickup detection.</p>
+      <div class="mt-10 grid gap-3 sm:grid-cols-3">
+        <div class="ios-card p-5">
+          <div class="grid h-10 w-10 place-items-center rounded-2xl bg-mom/20">
+            <svg class="h-5 w-5 text-mom" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 4a4 4 0 010 8 4 4 0 010-8z"/></svg>
+          </div>
+          <div class="mt-4 text-[11px] font-black uppercase tracking-[0.22em] text-white/40">Motion</div>
+          <p class="mt-2 text-[14px] leading-[1.5] text-white/60">Used during active focus sessions for pickup detection.</p>
         </div>
-        <div class="panel p-5">
-          <p class="text-[0.68rem] font-black uppercase tracking-[0.24em] text-white/35">Analytics</p>
-          <p class="mt-3 text-sm leading-6 text-white/68">Firebase Analytics is present in the current app implementation.</p>
+        <div class="ios-card p-5">
+          <div class="grid h-10 w-10 place-items-center rounded-2xl bg-white/10">
+            <svg class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 16l5-6 3 3 5-7"/></svg>
+          </div>
+          <div class="mt-4 text-[11px] font-black uppercase tracking-[0.22em] text-white/40">Analytics</div>
+          <p class="mt-2 text-[14px] leading-[1.5] text-white/60">Firebase Analytics is present in the current app implementation.</p>
         </div>
-        <div class="panel p-5">
-          <p class="text-[0.68rem] font-black uppercase tracking-[0.24em] text-white/35">Purchases</p>
-          <p class="mt-3 text-sm leading-6 text-white/68">Paid voice pack unlocks are handled through Apple's StoreKit and App Store.</p>
+        <div class="ios-card p-5">
+          <div class="grid h-10 w-10 place-items-center rounded-2xl bg-white/10">
+            <svg class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="10" rx="2"/><path d="M7 6V4a3 3 0 016 0v2"/></svg>
+          </div>
+          <div class="mt-4 text-[11px] font-black uppercase tracking-[0.22em] text-white/40">Purchases</div>
+          <p class="mt-2 text-[14px] leading-[1.5] text-white/60">Paid voice pack unlocks are handled through Apple's StoreKit and the App Store.</p>
         </div>
       </div>
 
-      <div class="panel mt-10 p-8">
-        <div class="prose prose-invert max-w-none prose-headings:font-display prose-headings:font-black prose-p:text-white/72 prose-li:text-white/72 prose-strong:text-white">
-          <h2>1. Information the app uses</h2>
+      <div class="ios-card mt-8 p-8">
+        <div class="prose prose-invert max-w-none prose-headings:font-rounded prose-headings:font-black prose-headings:tracking-[-0.01em] prose-h2:text-[22px] prose-h2:mt-8 prose-h2:mb-3 prose-p:text-white/65 prose-p:text-[16px] prose-p:leading-[1.6] prose-li:text-white/65 prose-li:text-[16px] prose-li:leading-[1.6] prose-strong:text-white">
+          <h2 class="!mt-0">1. Information the app uses</h2>
           <ul>
             <li>Motion data while a focus session is active, so the app can detect pickups.</li>
             <li>Local session history, including duration, pickup count, selected voice pack, completion state, streak values, and the last spoken line.</li>
@@ -149,5 +175,18 @@
         </div>
       </div>
     </main>
+
+    <footer class="border-t border-white/[0.06]">
+      <div class="mx-auto flex max-w-4xl flex-col gap-5 px-6 py-10 text-[14px] text-white/50 sm:flex-row sm:items-center sm:justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-[#FF375F] to-[#FF1A4D]">
+            <span class="h-1.5 w-1.5 rounded-full bg-white"></span>
+          </span>
+          <span class="font-semibold text-white/80">Put It Back</span>
+          <span class="text-white/30">· Mosaic</span>
+        </div>
+        <a class="muted-link" href="index.html">Back to home</a>
+      </div>
+    </footer>
   </body>
 </html>
