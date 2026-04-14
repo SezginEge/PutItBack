@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Put It Back social preview</title>
+  <desc id="desc">Dark social card for Put It Back with gradient accents and voice pack labels.</desc>
+  <defs>
+    <linearGradient id="pack" x1="240" y1="110" x2="910" y2="250" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset="0.36" stop-color="#ff63b6"/>
+      <stop offset="0.67" stop-color="#ff9d3d"/>
+      <stop offset="1" stop-color="#61e5ff"/>
+    </linearGradient>
+    <filter id="blurLarge" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="52"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="#05070d"/>
+  <circle cx="180" cy="150" r="150" fill="#ff63b6" fill-opacity="0.20" filter="url(#blurLarge)"/>
+  <circle cx="980" cy="160" r="170" fill="#ff9d3d" fill-opacity="0.16" filter="url(#blurLarge)"/>
+  <circle cx="940" cy="510" r="180" fill="#61e5ff" fill-opacity="0.14" filter="url(#blurLarge)"/>
+
+  <rect x="64" y="54" width="1072" height="522" rx="34" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.10)"/>
+
+  <text x="112" y="120" fill="rgba(255,255,255,0.55)" font-family="Lexend, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="7">
+    IPHONE FOCUS TIMER
+  </text>
+
+  <text x="112" y="250" fill="#ffffff" font-family="Lexend, Arial, sans-serif" font-size="112" font-weight="900" letter-spacing="-6">
+    PUT IT
+  </text>
+  <text x="112" y="346" fill="url(#pack)" font-family="Lexend, Arial, sans-serif" font-size="112" font-weight="900" letter-spacing="-6">
+    BACK
+  </text>
+
+  <text x="112" y="414" fill="rgba(255,255,255,0.72)" font-family="Lexend, Arial, sans-serif" font-size="34" font-weight="500">
+    Drop the phone. Let them roast.
+  </text>
+  <text x="112" y="462" fill="rgba(255,255,255,0.56)" font-family="Lexend, Arial, sans-serif" font-size="26" font-weight="500">
+    Motion-aware sessions, escalating voice packs, streaks, analytics, and Live Activities.
+  </text>
+
+  <rect x="112" y="510" width="148" height="54" rx="27" fill="rgba(255,99,182,0.12)" stroke="rgba(255,99,182,0.42)"/>
+  <text x="157" y="544" fill="#ff63b6" font-family="Lexend, Arial, sans-serif" font-size="24" font-weight="800">Mom</text>
+
+  <rect x="278" y="510" width="186" height="54" rx="27" fill="rgba(255,157,61,0.12)" stroke="rgba(255,157,61,0.42)"/>
+  <text x="322" y="544" fill="#ff9d3d" font-family="Lexend, Arial, sans-serif" font-size="24" font-weight="800">Sergeant</text>
+
+  <rect x="482" y="510" width="190" height="54" rx="27" fill="rgba(97,229,255,0.12)" stroke="rgba(97,229,255,0.42)"/>
+  <text x="522" y="544" fill="#61e5ff" font-family="Lexend, Arial, sans-serif" font-size="24" font-weight="800">Therapist</text>
+
+  <g transform="translate(806 118)">
+    <rect width="262" height="392" rx="42" fill="#03060b" stroke="rgba(255,255,255,0.14)"/>
+    <rect x="18" y="18" width="226" height="356" rx="32" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="78" y="38" width="106" height="22" rx="11" fill="rgba(255,255,255,0.10)"/>
+    <circle cx="131" cy="186" r="90" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="10"/>
+    <circle cx="131" cy="186" r="90" fill="none" stroke="url(#pack)" stroke-width="10" stroke-linecap="round" stroke-dasharray="565" stroke-dashoffset="164" transform="rotate(-90 131 186)"/>
+    <text x="82" y="202" fill="#ffffff" font-family="IBM Plex Mono, monospace" font-size="44" font-weight="400">24:16</text>
+    <text x="80" y="235" fill="rgba(255,255,255,0.46)" font-family="Lexend, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="4">
+      THERAPIST
+    </text>
+    <text x="95" y="268" fill="#ff9d3d" font-family="Lexend, Arial, sans-serif" font-size="18" font-weight="700">
+      2 pickups
+    </text>
+    <rect x="42" y="300" width="178" height="54" rx="20" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)"/>
+    <text x="57" y="320" fill="rgba(255,255,255,0.40)" font-family="Lexend, Arial, sans-serif" font-size="10" font-weight="800" letter-spacing="3">
+      LAST ROAST
+    </text>
+    <text x="57" y="343" fill="#ffffff" font-family="Lexend, Arial, sans-serif" font-size="15" font-weight="600">
+      "Interesting. You're
+    </text>
+    <text x="57" y="363" fill="#ffffff" font-family="Lexend, Arial, sans-serif" font-size="15" font-weight="600">
+      reaching for it again."
+    </text>
+  </g>
+</svg>
