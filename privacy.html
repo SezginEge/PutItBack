@@ -6,12 +6,13 @@
     <title>Put It Back Privacy Policy</title>
     <meta
       name="description"
-      content="Privacy Policy for Put It Back, the iPhone focus timer. Covers motion access, local session storage, Firebase Analytics usage, and StoreKit purchase handling."
+      content="Privacy Policy for Put It Back, the iPhone focus timer. Covers motion access, local session storage, Firebase Analytics events, and StoreKit in-app purchase handling."
     >
     <meta name="theme-color" content="#000000">
     <meta name="robots" content="index,follow,max-image-preview:large">
     <link rel="canonical" href="https://putitback.app/privacy.html">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="app-icon-nobg.png">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://putitback.app/privacy.html">
     <meta property="og:title" content="Put It Back Privacy Policy">
@@ -29,7 +30,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     >
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
@@ -39,7 +40,8 @@
           extend: {
             colors: { mom: "#FF375F" },
             fontFamily: {
-              rounded: ['"SF Pro Rounded"', "ui-rounded", "Nunito", "system-ui", "sans-serif"]
+              rounded: ['"SF Pro Rounded"', "ui-rounded", "Nunito", "system-ui", "sans-serif"],
+              mono: ['"SF Mono"', "ui-monospace", '"JetBrains Mono"', "monospace"]
             }
           }
         }
@@ -69,7 +71,7 @@
     <style>
       body {
         background:
-          radial-gradient(60rem 40rem at 50% -10%, rgba(255, 55, 95, 0.12), transparent 60%),
+          radial-gradient(55rem 35rem at 50% -5%, rgba(255, 55, 95, 0.14), transparent 60%),
           #000;
         background-attachment: fixed;
       }
@@ -79,12 +81,7 @@
     <header class="sticky top-0 z-40 backdrop-blur-xl bg-black/60 border-b border-white/[0.06]">
       <div class="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
         <a href="index.html" class="flex items-center gap-2.5">
-          <span class="grid h-9 w-9 place-items-center rounded-[10px] bg-gradient-to-br from-[#FF375F] to-[#FF1A4D] shadow-[0_6px_20px_-4px_rgba(255,55,95,0.55)]">
-            <svg viewBox="0 0 24 24" class="h-5 w-5 text-white" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="6" y="2.5" width="12" height="19" rx="3"/>
-              <circle cx="12" cy="18" r="1" fill="currentColor" stroke="none"/>
-            </svg>
-          </span>
+          <img src="app-icon-nobg.png" alt="" class="h-9 w-9 drop-shadow-[0_4px_14px_rgba(255,55,95,0.35)]">
           <span class="font-rounded text-[17px] font-extrabold tracking-tight text-white">Put It Back</span>
         </a>
         <a class="inline-flex items-center gap-2 rounded-full bg-white/[0.08] px-4 py-2 text-[14px] font-bold text-white transition hover:bg-white/[0.12]" href="index.html">
@@ -99,78 +96,69 @@
       <h1 class="mt-4 font-rounded text-[44px] font-black leading-[1.05] tracking-[-0.025em] sm:text-[56px]">Privacy Policy</h1>
       <p class="mt-4 text-[15px] text-white/50">Effective date: April 14, 2026</p>
       <p class="mt-6 max-w-2xl text-[17px] leading-[1.55] text-white/65">
-        This page reflects the current behavior visible in the iOS app code reviewed for this website.
+        This page describes exactly what Put It Back collects, where it sends data, and what stays on your device.
       </p>
 
+      <!-- Quick summary cards -->
       <div class="mt-10 grid gap-3 sm:grid-cols-3">
         <div class="ios-card p-5">
           <div class="grid h-10 w-10 place-items-center rounded-2xl bg-mom/20">
             <svg class="h-5 w-5 text-mom" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 4a4 4 0 010 8 4 4 0 010-8z"/></svg>
           </div>
           <div class="mt-4 text-[11px] font-black uppercase tracking-[0.22em] text-white/40">Motion</div>
-          <p class="mt-2 text-[14px] leading-[1.5] text-white/60">Used during active focus sessions for pickup detection.</p>
+          <p class="mt-2 text-[14px] leading-[1.5] text-white/60">Accelerometer + gravity data used only during active sessions. Never stored, never transmitted.</p>
         </div>
         <div class="ios-card p-5">
           <div class="grid h-10 w-10 place-items-center rounded-2xl bg-white/10">
             <svg class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 16l5-6 3 3 5-7"/></svg>
           </div>
           <div class="mt-4 text-[11px] font-black uppercase tracking-[0.22em] text-white/40">Analytics</div>
-          <p class="mt-2 text-[14px] leading-[1.5] text-white/60">Firebase Analytics is present in the current app implementation.</p>
+          <p class="mt-2 text-[14px] leading-[1.5] text-white/60">Anonymized product events via Firebase Analytics. No session text or motion readings are sent.</p>
         </div>
         <div class="ios-card p-5">
           <div class="grid h-10 w-10 place-items-center rounded-2xl bg-white/10">
             <svg class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="10" rx="2"/><path d="M7 6V4a3 3 0 016 0v2"/></svg>
           </div>
           <div class="mt-4 text-[11px] font-black uppercase tracking-[0.22em] text-white/40">Purchases</div>
-          <p class="mt-2 text-[14px] leading-[1.5] text-white/60">Paid voice pack unlocks are handled through Apple's StoreKit and the App Store.</p>
+          <p class="mt-2 text-[14px] leading-[1.5] text-white/60">Apple StoreKit handles the one-time unlock. We never see your payment details.</p>
         </div>
       </div>
 
+      <!-- Body -->
       <div class="ios-card mt-8 p-8">
-        <div class="prose prose-invert max-w-none prose-headings:font-rounded prose-headings:font-black prose-headings:tracking-[-0.01em] prose-h2:text-[22px] prose-h2:mt-8 prose-h2:mb-3 prose-p:text-white/65 prose-p:text-[16px] prose-p:leading-[1.6] prose-li:text-white/65 prose-li:text-[16px] prose-li:leading-[1.6] prose-strong:text-white">
-          <h2 class="!mt-0">1. Information the app uses</h2>
-          <ul>
-            <li>Motion data while a focus session is active, so the app can detect pickups.</li>
-            <li>Local session history, including duration, pickup count, selected voice pack, completion state, streak values, and the last spoken line.</li>
-            <li>Preference data such as selected voice pack and preferred session duration.</li>
-            <li>Purchase state related to the one-time unlock for paid voice packs.</li>
-            <li>Usage analytics events for sessions, pickups, paywalls, purchases, and sharing.</li>
-          </ul>
+        <div class="prose prose-invert max-w-none prose-headings:font-rounded prose-headings:font-black prose-headings:tracking-[-0.01em] prose-h2:text-[24px] prose-h2:mt-10 prose-h2:mb-3 prose-h3:text-[18px] prose-h3:mt-6 prose-h3:mb-2 prose-p:text-white/65 prose-p:text-[16px] prose-p:leading-[1.6] prose-li:text-white/65 prose-li:text-[16px] prose-li:leading-[1.6] prose-strong:text-white prose-code:text-white prose-code:bg-white/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:text-[13px] prose-code:font-mono prose-code:before:content-none prose-code:after:content-none">
 
-          <h2>2. How the information is used</h2>
-          <ul>
-            <li>To run focus sessions and detect when the phone is picked up.</li>
-            <li>To restore sessions and keep the remaining time accurate.</li>
-            <li>To show analytics, streaks, and result summaries in the app.</li>
-            <li>To enable and restore paid voice pack access through the App Store.</li>
-            <li>To understand product usage through analytics events.</li>
-          </ul>
-
-          <h2>3. Analytics</h2>
+          <h2 class="!mt-0">Motion</h2>
           <p>
-            The current iOS app includes Firebase Analytics. Based on the reviewed code, Firebase Analytics is used for product events such as app opens, session starts, pickups, paywall views, purchases, and sharing actions.
+            While a focus session is running, the app reads motion from the phone's sensors to decide whether you've picked it up. Nothing is recorded; nothing leaves the device. Deny the permission in iOS Settings and pickup detection stops — the timer still runs.
           </p>
 
-          <h2>4. Purchases</h2>
+          <h2>What stays on your phone</h2>
           <p>
-            Paid voice packs are handled through Apple's StoreKit and the App Store. Payment details are handled by Apple, not entered directly into the app.
+            Your session history, streaks, preferences, and the last line that played live on your device. The app does not sync them to a server. Delete the app to delete the data.
           </p>
 
-          <h2>5. Local storage</h2>
+          <h2>Analytics</h2>
           <p>
-            Session history and session recovery details are stored locally on the device so the app can show analytics, remember preferences, and recover active sessions.
+            The app sends anonymous product events to Firebase Analytics — things like "a session started," "a pickup happened," "the paywall was viewed." That helps us see which features people actually use.
+          </p>
+          <p>
+            What's in those events: counts, the voice pack name, and session length. What's <em>not</em>: your name, email, Apple ID, the voice line that played, or any raw sensor data. No ads, no IDFA, no cross-app tracking.
           </p>
 
-          <h2>6. Your choices</h2>
-          <ul>
-            <li>You can decline motion access, but pickup detection will not work as intended.</li>
-            <li>You can manage app permissions through iOS Settings.</li>
-            <li>You can manage App Store purchases and restore transactions through Apple services and in-app restore flows where available.</li>
-          </ul>
-
-          <h2>7. Policy updates</h2>
+          <h2>Purchases</h2>
           <p>
-            This page should be updated if the app's analytics stack, storage behavior, or purchase flow changes.
+            The voice-pack unlock is a one-time in-app purchase handled by Apple. We never see your payment details. Restore works through Apple. There is no subscription.
+          </p>
+
+          <h2>Who gets data</h2>
+          <p>
+            Apple (for the purchase) and Google's Firebase (for anonymous analytics). That's it. No advertisers, no data brokers, nothing sold.
+          </p>
+
+          <h2>Contact</h2>
+          <p>
+            Questions? <a href="mailto:sezginege.mail@gmail.com" class="text-white underline-offset-2 hover:underline">sezginege.mail@gmail.com</a>.
           </p>
         </div>
       </div>
@@ -179,9 +167,7 @@
     <footer class="border-t border-white/[0.06]">
       <div class="mx-auto flex max-w-4xl flex-col gap-5 px-6 py-10 text-[14px] text-white/50 sm:flex-row sm:items-center sm:justify-between">
         <div class="flex items-center gap-2.5">
-          <span class="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-[#FF375F] to-[#FF1A4D]">
-            <span class="h-1.5 w-1.5 rounded-full bg-white"></span>
-          </span>
+          <img src="app-icon-nobg.png" alt="" class="h-7 w-7">
           <span class="font-semibold text-white/80">Put It Back</span>
           <span class="text-white/30">· Mosaic</span>
         </div>

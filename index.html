@@ -16,7 +16,8 @@
     <meta name="theme-color" content="#000000">
     <meta name="robots" content="index,follow,max-image-preview:large">
     <link rel="canonical" href="https://putitback.app/">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="app-icon-nobg.png">
     <meta property="og:site_name" content="Put It Back">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://putitback.app/">
@@ -37,7 +38,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@200;400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@200;300;400&display=swap"
       rel="stylesheet"
     >
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
@@ -48,10 +49,7 @@
             colors: {
               mom: "#FF375F",
               sergeant: "#FF9F0A",
-              therapist: "#64D2FF",
-              systempink: "#FF375F",
-              systemorange: "#FF9F0A",
-              systemcyan: "#64D2FF"
+              therapist: "#64D2FF"
             },
             fontFamily: {
               rounded: ['"SF Pro Rounded"', "ui-rounded", "Nunito", "system-ui", "sans-serif"],
@@ -63,32 +61,24 @@
     </script>
     <style type="text/tailwindcss">
       @layer base {
-        html {
-          scroll-behavior: smooth;
-          -webkit-text-size-adjust: 100%;
-        }
-
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
         body {
           @apply bg-black font-rounded text-white antialiased;
-          font-feature-settings: "ss01", "cv01";
         }
-
-        ::selection {
-          @apply bg-white text-black;
-        }
+        ::selection { @apply bg-white text-black; }
       }
 
       @layer components {
         .ios-card {
-          @apply rounded-[28px] bg-white/[0.06] backdrop-blur-xl;
-        }
-
-        .ios-pill {
-          @apply inline-flex items-center gap-2 rounded-full bg-white/[0.08] px-4 py-2 text-sm font-bold;
+          @apply rounded-[28px] bg-white/[0.05] ring-1 ring-white/[0.06];
         }
 
         .eyebrow {
           @apply text-[0.72rem] font-black uppercase tracking-[0.22em] text-white/45;
+        }
+
+        .chip {
+          @apply inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-3.5 py-2 text-[13px] font-semibold text-white/75 ring-1 ring-white/[0.06];
         }
 
         .muted-link {
@@ -105,45 +95,28 @@
 
       body {
         background:
-          radial-gradient(60rem 40rem at 50% -10%, rgba(255, 55, 95, 0.18), transparent 60%),
-          radial-gradient(40rem 30rem at 110% 40%, rgba(100, 210, 255, 0.08), transparent 60%),
+          radial-gradient(55rem 35rem at 50% -5%, rgba(255, 55, 95, 0.22), transparent 60%),
+          radial-gradient(40rem 30rem at 110% 60%, rgba(100, 210, 255, 0.06), transparent 60%),
           #000;
         background-attachment: fixed;
       }
 
-      @keyframes pulseGlow {
-        0%, 100% { transform: scale(1); opacity: 0.45; }
-        50% { transform: scale(1.08); opacity: 0.7; }
-      }
-
-      @keyframes pulseSoft {
+      @keyframes pulseHalo {
         0%, 100% { transform: scale(1); opacity: 0.25; }
-        50% { transform: scale(1.12); opacity: 0.4; }
+        50% { transform: scale(1.15); opacity: 0.5; }
       }
 
-      @keyframes ringSweep {
-        to { stroke-dashoffset: 0; }
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
       }
 
-      @keyframes breathe {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.03); }
-      }
-
-      .pulse-glow { animation: pulseGlow 2.6s ease-in-out infinite; }
-      .pulse-soft { animation: pulseSoft 2.6s ease-in-out infinite; }
-      .breathe { animation: breathe 3.4s ease-in-out infinite; }
-
-      .ring-sweep circle.progress {
-        stroke-dasharray: 754;
-        stroke-dashoffset: 754;
-        animation: ringSweep 14s ease-out forwards;
-      }
+      .pulse-halo { animation: pulseHalo 3s ease-in-out infinite; }
+      .float-slow { animation: float 4s ease-in-out infinite; }
 
       .tint-mom { color: var(--mom); }
       .tint-sergeant { color: var(--sergeant); }
       .tint-therapist { color: var(--therapist); }
-
       .bg-mom { background-color: var(--mom); }
       .bg-sergeant { background-color: var(--sergeant); }
       .bg-therapist { background-color: var(--therapist); }
@@ -152,16 +125,9 @@
       details > summary .chev { transition: transform 0.2s ease; }
       details[open] > summary .chev { transform: rotate(90deg); }
 
-      .grain::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background-image:
-          radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-        background-size: 3px 3px;
-        mix-blend-mode: overlay;
-        opacity: 0.4;
+      #demoRing .progress {
+        stroke-dasharray: 754;
+        stroke-dashoffset: 754;
       }
     </style>
     <script type="application/ld+json">
@@ -173,10 +139,7 @@
         "applicationCategory": "ProductivityApplication",
         "url": "https://putitback.app/",
         "description": "Put It Back is an iPhone focus timer that detects phone pickups during a session, plays voice lines, tracks streaks, and shows the countdown with Live Activities.",
-        "publisher": {
-          "@type": "Organization",
-          "name": "Mosaic"
-        },
+        "publisher": { "@type": "Organization", "name": "Mosaic" },
         "featureList": [
           "15, 25, and 45 minute focus sessions",
           "Motion-aware pickup detection",
@@ -198,19 +161,12 @@
     <header class="sticky top-0 z-40 backdrop-blur-xl bg-black/60 border-b border-white/[0.06]">
       <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="index.html" class="flex items-center gap-2.5">
-          <span class="grid h-9 w-9 place-items-center rounded-[10px] bg-gradient-to-br from-[#FF375F] to-[#FF1A4D] shadow-[0_6px_20px_-4px_rgba(255,55,95,0.55)]">
-            <svg viewBox="0 0 24 24" class="h-5 w-5 text-white" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="6" y="2.5" width="12" height="19" rx="3"/>
-              <circle cx="12" cy="18" r="1" fill="currentColor" stroke="none"/>
-            </svg>
-          </span>
+          <img src="app-icon-nobg.png" alt="" class="h-9 w-9 drop-shadow-[0_4px_14px_rgba(255,55,95,0.35)]">
           <span class="font-rounded text-[17px] font-extrabold tracking-tight text-white">Put It Back</span>
         </a>
-
         <nav class="hidden items-center gap-7 text-[15px] md:flex">
-          <a class="muted-link" href="#features">Features</a>
-          <a class="muted-link" href="#how-it-works">How it works</a>
-          <a class="muted-link" href="#voice-packs">Voice packs</a>
+          <a class="muted-link" href="#demo">Session</a>
+          <a class="muted-link" href="#voice-packs">Voices</a>
           <a class="muted-link" href="#faq">FAQ</a>
           <a class="muted-link" href="privacy.html">Privacy</a>
         </nav>
@@ -219,250 +175,112 @@
 
     <main id="content">
       <!-- HERO -->
-      <section class="relative mx-auto max-w-6xl px-6 pt-16 pb-20 sm:pt-24 sm:pb-28">
-        <div class="grid gap-14 lg:grid-cols-[1fr_auto] lg:items-center">
-          <div class="max-w-xl">
-            <span class="ios-pill text-white/70">
-              <span class="h-1.5 w-1.5 rounded-full bg-mom"></span>
-              iPhone · iOS 18
-            </span>
-            <h1 class="mt-6 font-rounded text-[56px] font-black leading-[0.95] tracking-[-0.035em] sm:text-[76px]">
-              <span class="block">Put it</span>
-              <span class="block tint-mom">back.</span>
-            </h1>
-            <p class="mt-6 text-[19px] leading-[1.5] text-white/65">
-              A focus timer that notices when you can't leave your phone alone. Start a session, drop the phone, and let it call you out if you pick it up.
-            </p>
-
-            <div class="mt-8 flex flex-wrap items-center gap-3">
-              <a
-                href="#features"
-                class="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-bold text-black transition hover:bg-white/90"
-              >
-                See how it works
-                <svg class="h-4 w-4 transition group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-              <a
-                href="#voice-packs"
-                class="inline-flex items-center gap-2 rounded-full bg-white/[0.08] px-6 py-3.5 text-[15px] font-bold text-white transition hover:bg-white/[0.12]"
-              >
-                Meet the voices
-              </a>
-            </div>
-
-            <div class="mt-10 flex items-center gap-5 text-[13px] text-white/45">
-              <div class="flex items-center gap-2">
-                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5L12.5 7l6 .6-4.5 4 1.4 6L10 14.7 4.6 17.6 6 11.6 1.5 7.6l6-.6z"/></svg>
-                <span>One-time unlock</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3v7l4 2" stroke-linecap="round"/><circle cx="10" cy="10" r="7.5"/></svg>
-                <span>15 / 25 / 45 min</span>
-              </div>
-              <div class="hidden sm:flex items-center gap-2">
-                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="5" width="13" height="10" rx="2.5"/><path d="M7 9v2M13 8v4M10 7v6" stroke-linecap="round"/></svg>
-                <span>Live Activities</span>
-              </div>
-            </div>
+      <section class="relative mx-auto max-w-5xl px-6 pt-14 pb-10 text-center sm:pt-20">
+        <div class="relative mx-auto flex flex-col items-center">
+          <div class="relative">
+            <div class="pulse-halo absolute inset-0 -z-10 rounded-full bg-mom/35 blur-3xl"></div>
+            <img
+              src="app-icon-nobg.png"
+              alt="Put It Back app icon"
+              class="float-slow h-28 w-28 drop-shadow-[0_12px_40px_rgba(255,55,95,0.55)] sm:h-32 sm:w-32"
+            >
           </div>
 
-          <!-- PHONE PREVIEW -->
-          <div class="relative mx-auto w-full max-w-[340px] lg:max-w-[360px]">
-            <!-- ambient glow -->
-            <div class="absolute inset-0 -z-10 translate-y-10 blur-3xl opacity-60" aria-hidden="true">
-              <div class="mx-auto h-[420px] w-[280px] rounded-full bg-[radial-gradient(circle,_rgba(255,55,95,0.55),_transparent_60%)]"></div>
-            </div>
+          <h1 class="mt-8 font-rounded font-black leading-[0.9] tracking-[-0.035em] text-[64px] sm:text-[96px]">
+            <span class="block">PUT IT</span>
+            <span class="block tint-mom">BACK</span>
+          </h1>
 
-            <div class="relative rounded-[56px] bg-black p-2.5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8),_inset_0_0_0_1px_rgba(255,255,255,0.08)]">
-              <div class="relative overflow-hidden rounded-[48px] bg-black" style="aspect-ratio: 9/19.5;">
-                <!-- notch -->
-                <div class="absolute left-1/2 top-3 z-10 h-6 w-24 -translate-x-1/2 rounded-full bg-black ring-1 ring-white/5"></div>
+          <p class="mt-6 max-w-xl text-[19px] leading-[1.5] text-white/65 sm:text-[21px]">
+            A focus timer that notices when you can't leave your phone alone — and calls you out the moment you pick it up.
+          </p>
 
-                <!-- screen content: idle view -->
-                <div class="relative flex h-full flex-col items-center justify-between px-6 pt-14 pb-8">
-                  <div class="flex w-full justify-end opacity-60">
-                    <svg class="h-5 w-5 text-white/45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M3 17l4-5 4 3 4-7 6 8"/>
-                    </svg>
-                  </div>
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-2">
+            <span class="chip">
+              <svg class="h-3.5 w-3.5 tint-mom" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5c-.6 0-1.2.2-1.7.5l-5 3.4c-.5.3-.8.9-.8 1.5v3.5c0 4.8 3.2 9 7.5 10 4.3-1 7.5-5.2 7.5-10V6.9c0-.6-.3-1.2-.8-1.5l-5-3.4c-.5-.3-1.1-.5-1.7-.5z"/></svg>
+              Motion-aware pickups
+            </span>
+            <span class="chip">
+              <svg class="h-3.5 w-3.5 tint-therapist" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="14" height="10" rx="2.5"/><path d="M6 9v2M10 8v4M14 9v2" stroke-linecap="round"/></svg>
+              Live Activity countdown
+            </span>
+            <span class="chip">
+              <svg class="h-3.5 w-3.5 tint-sergeant" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.5 5.5 6 .6-4.5 4 1.4 6L10 14.7 4.6 17.6 6 11.6 1.5 7.6l6-.6z"/></svg>
+              Streaks & analytics
+            </span>
+            <span class="chip">
+              <svg class="h-3.5 w-3.5 text-white/80" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10" cy="10" r="7"/><path d="M7 10l2.5 2.5L14 8"/></svg>
+              One-time unlock
+            </span>
+          </div>
 
-                  <div class="text-center">
-                    <div class="font-rounded text-[38px] font-black leading-[0.95] tracking-tight text-white">PUT IT</div>
-                    <div class="font-rounded text-[38px] font-black leading-[0.95] tracking-tight tint-mom">BACK</div>
-                  </div>
-
-                  <div class="flex flex-col items-center gap-3">
-                    <!-- duration pills -->
-                    <div class="flex gap-2">
-                      <span class="rounded-full bg-white/[0.06] px-4 py-2 text-[13px] font-semibold text-white/50">15m</span>
-                      <span class="rounded-full bg-mom px-4 py-2 text-[13px] font-bold text-black">25m</span>
-                      <span class="rounded-full bg-white/[0.06] px-4 py-2 text-[13px] font-semibold text-white/50">45m</span>
-                    </div>
-
-                    <!-- voice pack pills -->
-                    <div class="flex gap-2">
-                      <span class="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-semibold text-white ring-1 ring-mom/60" style="background: rgba(255,55,95,0.18);">
-                        <svg class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zM4 17a6 6 0 0112 0H4z"/></svg>
-                        Mom
-                      </span>
-                      <span class="flex items-center gap-1.5 rounded-full bg-white/[0.04] px-3 py-1.5 text-[12px] font-semibold text-white/45">
-                        <svg class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor"><path d="M7 2h6l-1 3h2l-1 3h2l-5 10L5 8h2L6 5h2z"/></svg>
-                        Sergeant
-                      </span>
-                      <span class="flex items-center gap-1.5 rounded-full bg-white/[0.04] px-3 py-1.5 text-[12px] font-semibold text-white/45">
-                        <svg class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor"><path d="M4 5h8l-2 2h-4v6h8v-3l2-2v7H4z"/><circle cx="13" cy="6" r="1.5"/></svg>
-                        Therapist
-                      </span>
-                    </div>
-                  </div>
-
-                  <!-- start button -->
-                  <div class="relative flex h-[180px] w-[180px] items-center justify-center">
-                    <div class="pulse-soft absolute h-[180px] w-[180px] rounded-full bg-mom/10"></div>
-                    <div class="pulse-glow absolute h-[140px] w-[140px] rounded-full bg-mom/20"></div>
-                    <div class="relative grid h-[100px] w-[100px] place-items-center rounded-full bg-mom shadow-[0_0_40px_-4px_rgba(255,55,95,0.7)]">
-                      <span class="font-rounded text-[16px] font-black text-black">START</span>
-                    </div>
-                  </div>
-
-                  <div class="flex w-full items-center justify-center gap-2 text-[11px] font-semibold text-white/30">
-                    <span class="h-1 w-1 rounded-full bg-white/30"></span>
-                    Face-down to begin
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="#demo"
+              class="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-bold text-black transition hover:bg-white/90"
+            >
+              See a session
+              <svg class="h-4 w-4 transition group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4l6 6-6 6"/></svg>
+            </a>
+            <a
+              href="#voice-packs"
+              class="inline-flex items-center gap-2 rounded-full bg-white/[0.08] px-6 py-3.5 text-[15px] font-bold text-white transition hover:bg-white/[0.12]"
+            >
+              Meet the voices
+            </a>
           </div>
         </div>
       </section>
 
-      <!-- IN-SESSION PREVIEW -->
-      <section id="how-it-works" class="relative mx-auto max-w-6xl px-6 py-16">
-        <div class="grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:items-center">
-          <div>
-            <p class="eyebrow">Mid-session</p>
-            <h2 class="mt-4 font-rounded text-[40px] font-black leading-[1.05] tracking-[-0.025em] sm:text-[48px]">
+      <!-- LIVE DEMO -->
+      <section id="demo" class="relative mx-auto max-w-6xl px-6 py-20">
+        <div class="grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:items-center">
+          <div class="order-2 lg:order-1">
+            <p class="eyebrow">A session, playing out</p>
+            <h2 class="mt-4 font-rounded text-[36px] font-black leading-[1.05] tracking-[-0.025em] sm:text-[44px]">
               The timer runs.<br>
               <span class="text-white/45">The phone stays down.</span>
             </h2>
-            <p class="mt-5 max-w-lg text-[17px] leading-[1.55] text-white/65">
-              A circular ring counts down the session. Motion is watched in the background. When you reach for the phone, the selected voice pack has something to say about it.
+            <p class="mt-5 max-w-md text-[17px] leading-[1.55] text-white/60">
+              The ring counts down. Motion is watched the whole way through. When the phone leaves the table, a voice line fires — and the escalation tightens with each pickup.
             </p>
 
-            <div class="mt-8 space-y-4">
-              <div class="flex gap-4">
-                <span class="mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-mom/15">
-                  <span class="h-2 w-2 rounded-full bg-mom"></span>
-                </span>
-                <div>
-                  <div class="font-semibold text-white">Motion-aware pickup detection</div>
-                  <p class="mt-1 text-[15px] leading-[1.5] text-white/55">The accelerometer notices when the phone leaves the table during an active session.</p>
-                </div>
-              </div>
-              <div class="flex gap-4">
-                <span class="mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-sergeant/15">
-                  <span class="h-2 w-2 rounded-full bg-sergeant"></span>
-                </span>
-                <div>
-                  <div class="font-semibold text-white">Escalating reactions</div>
-                  <p class="mt-1 text-[15px] leading-[1.5] text-white/55">Lines get sharper after repeated pickups. Light, annoyed, or aggressive — the voice grades your session in real time.</p>
-                </div>
-              </div>
-              <div class="flex gap-4">
-                <span class="mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-therapist/15">
-                  <span class="h-2 w-2 rounded-full bg-therapist"></span>
-                </span>
-                <div>
-                  <div class="font-semibold text-white">Always visible on the Lock Screen</div>
-                  <p class="mt-1 text-[15px] leading-[1.5] text-white/55">A Live Activity keeps the countdown pinned to the Lock Screen and the Dynamic Island the whole way through.</p>
-                </div>
-              </div>
-            </div>
+            <ul class="mt-8 space-y-3 text-[15px] text-white/70">
+              <li class="flex gap-3">
+                <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-mom"></span>
+                <span><span class="font-semibold text-white">Light</span> at 1–2 pickups. <span class="font-semibold text-yellow-400">Annoyed</span> at 3–5. <span class="font-semibold text-red-400">Aggressive</span> after that.</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-mom"></span>
+                <span>If the session gets interrupted, it recovers from where it left off.</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-mom"></span>
+                <span>A clean session (zero pickups) adds to your streak. Everything else resets it.</span>
+              </li>
+            </ul>
           </div>
 
-          <!-- phone frame -->
-          <div class="relative mx-auto w-full max-w-[340px] lg:max-w-[360px]">
-            <div class="absolute inset-0 -z-10 translate-y-10 blur-3xl opacity-50" aria-hidden="true">
-              <div class="mx-auto h-[420px] w-[280px] rounded-full bg-[radial-gradient(circle,_rgba(255,55,95,0.35),_transparent_60%)]"></div>
-            </div>
-
-            <div class="relative rounded-[56px] bg-black p-2.5 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8),_inset_0_0_0_1px_rgba(255,255,255,0.08)]">
-              <div class="relative overflow-hidden rounded-[48px] bg-black" style="aspect-ratio: 9/19.5;">
-                <div class="absolute left-1/2 top-3 z-10 h-6 w-24 -translate-x-1/2 rounded-full bg-black ring-1 ring-white/5"></div>
-
-                <div class="relative flex h-full flex-col items-center justify-between px-6 pt-14 pb-8">
-                  <div class="opacity-0">_</div>
-
-                  <div class="relative grid h-[260px] w-[260px] place-items-center">
-                    <svg class="ring-sweep absolute inset-0 -rotate-90" viewBox="0 0 260 260">
-                      <circle cx="130" cy="130" r="120" stroke="rgba(255,255,255,0.08)" stroke-width="8" fill="none"/>
-                      <circle class="progress" cx="130" cy="130" r="120" stroke="var(--mom)" stroke-width="8" stroke-linecap="round" fill="none"/>
-                    </svg>
-                    <div class="flex flex-col items-center gap-2">
-                      <div class="font-mono text-[54px] font-extralight tracking-tight text-white tabular-nums">17:42</div>
-                      <div class="font-rounded text-[12px] font-black uppercase tracking-[0.2em] text-white/40">Mom</div>
-                      <div class="mt-1 text-[13px] font-medium text-yellow-400">2 pickups</div>
-                    </div>
-                  </div>
-
-                  <div class="max-w-[220px] text-center text-[14px] italic leading-[1.4] text-white/45">
-                    "Oh... you picked it up again?"
-                  </div>
-
-                  <div class="rounded-full bg-white/[0.08] px-8 py-3 text-[13px] font-bold tracking-wide text-white/55">
-                    END SESSION
-                  </div>
-                </div>
+          <div class="order-1 lg:order-2">
+            <div class="relative mx-auto aspect-square w-full max-w-[420px]">
+              <div class="absolute inset-0 -z-10 blur-3xl opacity-50" aria-hidden="true">
+                <div class="mx-auto h-full w-full rounded-full bg-[radial-gradient(circle,_rgba(255,55,95,0.4),_transparent_60%)]"></div>
               </div>
+
+              <svg id="demoRing" viewBox="0 0 260 260" class="absolute inset-0 h-full w-full -rotate-90">
+                <circle cx="130" cy="130" r="120" stroke="rgba(255,255,255,0.08)" stroke-width="6" fill="none"/>
+                <circle class="progress" cx="130" cy="130" r="120" stroke="var(--mom)" stroke-width="6" stroke-linecap="round" fill="none"/>
+              </svg>
+
+              <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center">
+                <div id="demoTime" class="font-mono text-[64px] font-extralight leading-none tracking-tight text-white tabular-nums sm:text-[72px]">25:00</div>
+                <div class="font-rounded text-[11px] font-black uppercase tracking-[0.2em] text-white/40">Mom · 25-min focus</div>
+                <div id="demoPickups" class="mt-2 text-[13px] font-semibold text-yellow-400 opacity-0 transition-opacity">0 pickups</div>
+              </div>
+
+              <div id="demoQuote" class="absolute -bottom-4 left-1/2 w-max max-w-[90%] -translate-x-1/2 text-center text-[14px] italic text-white/55 opacity-0 transition-opacity duration-500"></div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- FEATURES GRID -->
-      <section id="features" class="mx-auto max-w-6xl px-6 py-16">
-        <div class="mb-10 max-w-2xl">
-          <p class="eyebrow">Features</p>
-          <h2 class="mt-4 font-rounded text-[40px] font-black leading-[1.05] tracking-[-0.025em] sm:text-[48px]">
-            Small app. Sharp edges.
-          </h2>
-          <p class="mt-4 text-[17px] leading-[1.55] text-white/60">
-            Four things, done with intention. Everything else is removed.
-          </p>
-        </div>
-
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <article class="ios-card relative overflow-hidden p-6">
-            <div class="grid h-11 w-11 place-items-center rounded-2xl bg-mom/20">
-              <svg class="h-5 w-5 tint-mom" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm.75 4v4.25l3.5 2.1-.75 1.3L9.25 11V6z"/></svg>
-            </div>
-            <h3 class="mt-5 font-rounded text-[22px] font-black leading-tight">Three session lengths</h3>
-            <p class="mt-2 text-[15px] leading-[1.5] text-white/55">Fifteen, twenty-five, or forty-five minutes. Short reset, standard block, or the deep one.</p>
-          </article>
-
-          <article class="ios-card relative overflow-hidden p-6">
-            <div class="grid h-11 w-11 place-items-center rounded-2xl bg-sergeant/20">
-              <svg class="h-5 w-5 tint-sergeant" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5c-.5 0-1 .2-1.4.5l-5 3.5c-.4.3-.6.7-.6 1.1v3.4c0 4.5 3 8.4 7 9.5 4-1.1 7-5 7-9.5V6.6c0-.4-.2-.8-.6-1.1l-5-3.5c-.4-.3-.9-.5-1.4-.5z"/></svg>
-            </div>
-            <h3 class="mt-5 font-rounded text-[22px] font-black leading-tight">Pickup detection</h3>
-            <p class="mt-2 text-[15px] leading-[1.5] text-white/55">The motion sensor watches the phone. Lifting it mid-session is registered and called out.</p>
-          </article>
-
-          <article class="ios-card relative overflow-hidden p-6">
-            <div class="grid h-11 w-11 place-items-center rounded-2xl bg-therapist/20">
-              <svg class="h-5 w-5 tint-therapist" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16L8 10l3 3 5-7"/><path d="M3 3v14h14"/></svg>
-            </div>
-            <h3 class="mt-5 font-rounded text-[22px] font-black leading-tight">Streaks & analytics</h3>
-            <p class="mt-2 text-[15px] leading-[1.5] text-white/55">Clean sessions build a streak. The analytics view shows pickups, duration, and trend over time.</p>
-          </article>
-
-          <article class="ios-card relative overflow-hidden p-6">
-            <div class="grid h-11 w-11 place-items-center rounded-2xl bg-white/10">
-              <svg class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="14" height="12" rx="2.5"/><path d="M7 8v4M13 7v6M10 6v8" stroke-linecap="round"/></svg>
-            </div>
-            <h3 class="mt-5 font-rounded text-[22px] font-black leading-tight">Live Activities</h3>
-            <p class="mt-2 text-[15px] leading-[1.5] text-white/55">The timer sits on the Lock Screen and inside the Dynamic Island. Glanceable, unskippable.</p>
-          </article>
         </div>
       </section>
 
@@ -477,7 +295,6 @@
         </div>
 
         <div class="grid gap-4 md:grid-cols-3">
-          <!-- Mom -->
           <article class="relative overflow-hidden rounded-[28px] p-6" style="background: linear-gradient(165deg, rgba(255,55,95,0.22) 0%, rgba(255,55,95,0.03) 45%, rgba(255,255,255,0.02) 100%); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);">
             <div class="flex items-start justify-between">
               <div class="grid h-12 w-12 place-items-center rounded-2xl bg-mom/25">
@@ -486,13 +303,12 @@
               <span class="rounded-full bg-mom px-3 py-1 text-[11px] font-black uppercase tracking-wider text-black">Free</span>
             </div>
             <h3 class="mt-6 font-rounded text-[28px] font-black leading-tight">Mom</h3>
-            <p class="mt-2 text-[15px] leading-[1.5] text-white/60">Disappointed, not surprised. Softest of the three and still not patient.</p>
+            <p class="mt-2 text-[15px] leading-[1.5] text-white/60">Disappointed, not surprised. Softest of the three — still not patient.</p>
             <div class="mt-6 border-l-2 border-mom/60 pl-4">
               <p class="text-[15px] italic leading-[1.5] text-white/80">"Oh... you picked it up again?"</p>
             </div>
           </article>
 
-          <!-- Sergeant -->
           <article class="relative overflow-hidden rounded-[28px] p-6" style="background: linear-gradient(165deg, rgba(255,159,10,0.2) 0%, rgba(255,159,10,0.03) 45%, rgba(255,255,255,0.02) 100%); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);">
             <div class="flex items-start justify-between">
               <div class="grid h-12 w-12 place-items-center rounded-2xl bg-sergeant/25">
@@ -501,13 +317,12 @@
               <span class="rounded-full bg-white/10 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-white/70">Unlock</span>
             </div>
             <h3 class="mt-6 font-rounded text-[28px] font-black leading-tight">Sergeant</h3>
-            <p class="mt-2 text-[15px] leading-[1.5] text-white/60">Loud. Stricter. Turns every pickup into a small disciplinary event.</p>
+            <p class="mt-2 text-[15px] leading-[1.5] text-white/60">Loud. Stricter. Every pickup becomes a small disciplinary event.</p>
             <div class="mt-6 border-l-2 border-sergeant/60 pl-4">
               <p class="text-[15px] italic leading-[1.5] text-white/80">"Eyes forward! Phone down!"</p>
             </div>
           </article>
 
-          <!-- Therapist -->
           <article class="relative overflow-hidden rounded-[28px] p-6" style="background: linear-gradient(165deg, rgba(100,210,255,0.2) 0%, rgba(100,210,255,0.03) 45%, rgba(255,255,255,0.02) 100%); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);">
             <div class="flex items-start justify-between">
               <div class="grid h-12 w-12 place-items-center rounded-2xl bg-therapist/25">
@@ -523,101 +338,9 @@
           </article>
         </div>
 
-        <div class="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-[24px] bg-white/[0.04] px-5 py-4 text-[14px] text-white/55">
-          <span>Sergeant and Therapist unlock together in a one-time purchase.</span>
-          <span class="font-semibold text-white/80">No subscriptions.</span>
-        </div>
-      </section>
-
-      <!-- STEPS -->
-      <section class="mx-auto max-w-6xl px-6 py-16">
-        <div class="mb-10 max-w-2xl">
-          <p class="eyebrow">The loop</p>
-          <h2 class="mt-4 font-rounded text-[40px] font-black leading-[1.05] tracking-[-0.025em] sm:text-[48px]">
-            Three steps. That's the app.
-          </h2>
-        </div>
-
-        <div class="grid gap-4 md:grid-cols-3">
-          <article class="ios-card p-6">
-            <div class="flex items-center gap-3">
-              <div class="grid h-9 w-9 place-items-center rounded-full bg-mom/20 font-mono text-sm font-bold tint-mom">01</div>
-              <div class="h-px flex-1 bg-white/10"></div>
-            </div>
-            <h3 class="mt-5 font-rounded text-[22px] font-black leading-tight">Set the session</h3>
-            <p class="mt-2 text-[15px] leading-[1.5] text-white/55">Pick the length. Pick the voice. Tap start.</p>
-          </article>
-
-          <article class="ios-card p-6">
-            <div class="flex items-center gap-3">
-              <div class="grid h-9 w-9 place-items-center rounded-full bg-sergeant/20 font-mono text-sm font-bold tint-sergeant">02</div>
-              <div class="h-px flex-1 bg-white/10"></div>
-            </div>
-            <h3 class="mt-5 font-rounded text-[22px] font-black leading-tight">Put the phone down</h3>
-            <p class="mt-2 text-[15px] leading-[1.5] text-white/55">Face-down on the desk. The timer runs. Motion listens.</p>
-          </article>
-
-          <article class="ios-card p-6">
-            <div class="flex items-center gap-3">
-              <div class="grid h-9 w-9 place-items-center rounded-full bg-therapist/20 font-mono text-sm font-bold tint-therapist">03</div>
-              <div class="h-px flex-1 bg-white/10"></div>
-            </div>
-            <h3 class="mt-5 font-rounded text-[22px] font-black leading-tight">See the result</h3>
-            <p class="mt-2 text-[15px] leading-[1.5] text-white/55">Duration, pickups, and streak recorded. Share the scorecard.</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- RESULT EXAMPLE -->
-      <section class="mx-auto max-w-6xl px-6 py-16">
-        <div class="relative overflow-hidden rounded-[32px]" style="background: linear-gradient(165deg, rgba(255,55,95,0.18) 0%, rgba(0,0,0,0.4) 40%, #000 100%); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);">
-          <div class="grid gap-10 p-8 lg:grid-cols-[1fr_auto] lg:items-center lg:p-12">
-            <div>
-              <p class="eyebrow tint-mom">Session complete</p>
-              <h2 class="mt-4 font-rounded text-[36px] font-black leading-[1.05] tracking-[-0.02em] sm:text-[44px]">
-                You got through it.<br>
-                <span class="text-white/55">Here's what it cost.</span>
-              </h2>
-              <p class="mt-4 max-w-xl text-[17px] leading-[1.55] text-white/60">
-                Every session ends with a clean receipt. Duration, pickup count, best streak, and the last line the app used on you.
-              </p>
-            </div>
-
-            <!-- result card -->
-            <div class="rounded-[28px] bg-black/60 p-6 backdrop-blur-xl ring-1 ring-white/10 lg:w-[320px]">
-              <div class="flex items-center justify-between">
-                <span class="text-[11px] font-black uppercase tracking-[0.2em] tint-mom">Clean finish</span>
-                <span class="font-mono text-[11px] text-white/35">04:12 PM</span>
-              </div>
-              <div class="mt-4 font-rounded text-[26px] font-black leading-tight text-white">Held the line.</div>
-
-              <div class="mt-6 grid grid-cols-3 gap-3">
-                <div class="rounded-2xl bg-white/[0.05] p-3">
-                  <div class="font-mono text-[22px] font-light text-white tabular-nums">25m</div>
-                  <div class="mt-1 text-[11px] uppercase tracking-wider text-white/40">Duration</div>
-                </div>
-                <div class="rounded-2xl bg-white/[0.05] p-3">
-                  <div class="font-mono text-[22px] font-light text-white tabular-nums">2</div>
-                  <div class="mt-1 text-[11px] uppercase tracking-wider text-white/40">Pickups</div>
-                </div>
-                <div class="rounded-2xl bg-white/[0.05] p-3">
-                  <div class="font-mono text-[22px] font-light text-white tabular-nums">4</div>
-                  <div class="mt-1 text-[11px] uppercase tracking-wider text-white/40">Streak</div>
-                </div>
-              </div>
-
-              <div class="mt-5 rounded-2xl bg-white/[0.04] p-4">
-                <div class="text-[10px] font-black uppercase tracking-[0.2em] text-white/35">Last roast</div>
-                <p class="mt-2 text-[14px] italic text-white/80">"Oh... you picked it up again?"</p>
-              </div>
-
-              <button class="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-mom py-3 font-rounded text-[15px] font-black text-black">
-                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2l4 4h-3v6H9V6H6l4-4zM4 14h12v4H4z"/></svg>
-                Share result
-              </button>
-            </div>
-          </div>
-        </div>
+        <p class="mt-5 text-center text-[14px] text-white/45">
+          Sergeant and Therapist unlock together in a one-time purchase. No subscriptions.
+        </p>
       </section>
 
       <!-- FAQ -->
@@ -636,7 +359,7 @@
               <svg class="chev h-4 w-4 text-white/40" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7 4l6 6-6 6"/></svg>
             </summary>
             <div class="px-6 pb-5 text-[15px] leading-[1.55] text-white/60">
-              An iPhone focus timer. Start a session, set the phone down, and the app tracks pickups while the timer runs.
+              An iPhone focus timer. Pick a length, set the phone down, and the app tracks pickups while the timer runs.
             </div>
           </details>
           <div class="h-px bg-white/[0.06]"></div>
@@ -669,7 +392,7 @@
               <svg class="chev h-4 w-4 text-white/40" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7 4l6 6-6 6"/></svg>
             </summary>
             <div class="px-6 pb-5 text-[15px] leading-[1.55] text-white/60">
-              Session records, pickup counts, completion state, streak information, selected voice pack, and related session results. All local.
+              Session records, pickup counts, completion state, streak info, selected voice pack, and last spoken line — all kept locally. Anonymized product events are sent to Firebase Analytics. Full list on the privacy page.
             </div>
           </details>
         </div>
@@ -684,13 +407,13 @@
             </div>
             <div>
               <div class="text-[11px] font-black uppercase tracking-[0.22em] text-white/40">Privacy</div>
-              <h2 class="mt-1 font-rounded text-[22px] font-black leading-tight">Built from the current iOS behavior.</h2>
-              <p class="mt-1 max-w-xl text-[15px] leading-[1.5] text-white/55">Motion access, local session history, Firebase Analytics, and App Store purchases — spelled out plainly.</p>
+              <h2 class="mt-1 font-rounded text-[22px] font-black leading-tight">Exactly what the app does with your data.</h2>
+              <p class="mt-1 max-w-xl text-[15px] leading-[1.5] text-white/55">Motion access, local storage, the specific Firebase Analytics events, and StoreKit purchase flow — all spelled out.</p>
             </div>
           </div>
           <a href="privacy.html" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-3 text-[14px] font-bold text-white transition hover:bg-white/15">
             Read privacy policy
-            <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4l6 6-6 6"/></svg>
           </a>
         </div>
       </section>
@@ -699,20 +422,85 @@
     <footer class="border-t border-white/[0.06]">
       <div class="mx-auto flex max-w-6xl flex-col gap-5 px-6 py-10 text-[14px] text-white/50 sm:flex-row sm:items-center sm:justify-between">
         <div class="flex items-center gap-2.5">
-          <span class="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-[#FF375F] to-[#FF1A4D]">
-            <span class="h-1.5 w-1.5 rounded-full bg-white"></span>
-          </span>
+          <img src="app-icon-nobg.png" alt="" class="h-7 w-7">
           <span class="font-semibold text-white/80">Put It Back</span>
           <span class="text-white/30">· Mosaic</span>
         </div>
         <div class="flex flex-wrap gap-5">
-          <a class="muted-link" href="#features">Features</a>
-          <a class="muted-link" href="#how-it-works">How it works</a>
-          <a class="muted-link" href="#voice-packs">Voice packs</a>
+          <a class="muted-link" href="#demo">Session</a>
+          <a class="muted-link" href="#voice-packs">Voices</a>
           <a class="muted-link" href="#faq">FAQ</a>
           <a class="muted-link" href="privacy.html">Privacy</a>
         </div>
       </div>
     </footer>
+
+    <script>
+      (function () {
+        const timeEl = document.getElementById("demoTime");
+        const ringProgress = document.querySelector("#demoRing .progress");
+        const pickupsEl = document.getElementById("demoPickups");
+        const quoteEl = document.getElementById("demoQuote");
+        if (!timeEl || !ringProgress) return;
+
+        const TOTAL_SECONDS = 25 * 60;
+        const CIRCUMFERENCE = 754;
+        const CYCLE_MS = 22000;
+
+        const quotes = [
+          { t: 0.22, text: "\u201COh... you picked it up again?\u201D", n: 1 },
+          { t: 0.52, text: "\u201CSeriously? Put it down.\u201D", n: 2 },
+          { t: 0.80, text: "\u201CWow. Impressive focus.\u201D", n: 3 },
+        ];
+
+        let start = performance.now();
+        let shownIdx = -1;
+
+        function format(seconds) {
+          const m = Math.floor(seconds / 60);
+          const s = Math.floor(seconds % 60);
+          return String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0");
+        }
+
+        function tick(now) {
+          const elapsed = (now - start);
+          if (elapsed >= CYCLE_MS) {
+            start = now;
+            shownIdx = -1;
+            quoteEl.style.opacity = "0";
+            pickupsEl.style.opacity = "0";
+            ringProgress.style.strokeDashoffset = CIRCUMFERENCE;
+            timeEl.textContent = "25:00";
+            requestAnimationFrame(tick);
+            return;
+          }
+
+          const p = elapsed / CYCLE_MS;
+          const remaining = Math.max(0, TOTAL_SECONDS * (1 - p));
+          timeEl.textContent = format(remaining);
+          ringProgress.style.strokeDashoffset = String(CIRCUMFERENCE * (1 - p));
+
+          let activeIdx = -1;
+          for (let i = 0; i < quotes.length; i++) {
+            if (p >= quotes[i].t) activeIdx = i;
+          }
+          if (activeIdx !== shownIdx) {
+            shownIdx = activeIdx;
+            if (activeIdx === -1) {
+              quoteEl.style.opacity = "0";
+              pickupsEl.style.opacity = "0";
+            } else {
+              quoteEl.textContent = quotes[activeIdx].text;
+              quoteEl.style.opacity = "1";
+              const n = quotes[activeIdx].n;
+              pickupsEl.textContent = n + " pickup" + (n === 1 ? "" : "s");
+              pickupsEl.style.opacity = "1";
+            }
+          }
+          requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      })();
+    </script>
   </body>
 </html>
