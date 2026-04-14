@@ -8,7 +8,7 @@
       name="description"
       content="Privacy Policy for Put It Back, the iPhone focus timer. Covers motion access, local session storage, Firebase Analytics usage, and StoreKit purchase handling."
     >
-    <meta name="theme-color" content="#05070d">
+    <meta name="theme-color" content="#050505">
     <meta name="robots" content="index,follow,max-image-preview:large">
     <link rel="canonical" href="https://putitback.app/privacy.html">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -38,12 +38,8 @@
         theme: {
           extend: {
             colors: {
-              night: "#05070d",
-              ink: "#edf2ff",
-              mist: "#9aa7bf",
-              mom: "#ff63b6",
-              sergeant: "#ff9d3d",
-              therapist: "#61e5ff"
+              night: "#050505",
+              ink: "#f5f5f5"
             },
             fontFamily: {
               display: ["Lexend", "ui-sans-serif", "system-ui", "sans-serif"],
@@ -58,109 +54,100 @@
       @layer base {
         body {
           @apply bg-night font-body text-ink antialiased;
-          background-image:
-            radial-gradient(circle at 12% 8%, rgba(255, 99, 182, 0.12), transparent 28%),
-            radial-gradient(circle at 84% 16%, rgba(97, 229, 255, 0.10), transparent 28%),
-            linear-gradient(180deg, #070b12 0%, #05070d 32%, #05070d 100%);
+          background-image: linear-gradient(180deg, #0a0a0a 0%, #050505 24%, #050505 100%);
         }
       }
 
       @layer components {
         .panel {
-          @apply rounded-[2rem] border border-white/10 bg-white/[0.04] backdrop-blur-xl;
+          @apply rounded-[1.75rem] border border-white/10 bg-white/[0.03];
         }
 
         .eyebrow {
-          @apply inline-flex items-center rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-white/55;
+          @apply inline-flex rounded-full border border-white/10 px-3 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.24em] text-white/50;
         }
       }
     </style>
   </head>
   <body>
-    <header class="relative z-10">
-      <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-6 lg:px-10">
-        <a href="index.html" class="flex items-center gap-3">
-          <span class="grid h-11 w-11 place-items-center rounded-2xl border border-white/10 bg-white/[0.06]">
-            <span class="h-5 w-5 rounded-full bg-gradient-to-br from-mom via-sergeant to-therapist"></span>
-          </span>
-          <span class="font-display text-base font-extrabold uppercase tracking-[0.22em] text-white">PUT IT BACK</span>
-        </a>
-        <a class="text-sm font-semibold text-white/65 transition hover:text-white" href="index.html">Back to home</a>
+    <header class="border-b border-white/6">
+      <div class="mx-auto flex max-w-4xl items-center justify-between px-6 py-5">
+        <a href="index.html" class="font-display text-sm font-extrabold uppercase tracking-[0.24em] text-white">Put It Back</a>
+        <a class="text-sm text-white/55 transition hover:text-white" href="index.html">Back to home</a>
       </div>
     </header>
 
-    <main class="relative z-10">
-      <section class="mx-auto max-w-5xl px-6 pb-20 pt-6 lg:px-10 lg:pt-10">
-        <p class="eyebrow">Privacy policy</p>
-        <h1 class="mt-6 font-display text-4xl font-black text-white sm:text-5xl">Put It Back Privacy Policy</h1>
-        <p class="mt-5 max-w-3xl text-lg leading-8 text-white/68">
-          Effective date: April 14, 2026
-        </p>
-        <p class="mt-4 max-w-3xl text-lg leading-8 text-white/68">
-          This policy describes how the current Put It Back iOS app handles information in connection with focus sessions, analytics, and purchases.
-        </p>
+    <main class="mx-auto max-w-4xl px-6 py-16">
+      <p class="eyebrow">Privacy policy</p>
+      <h1 class="mt-6 font-display text-4xl font-black text-white">Put It Back Privacy Policy</h1>
+      <p class="mt-4 text-base leading-7 text-white/65">Effective date: April 14, 2026</p>
+      <p class="mt-4 max-w-3xl text-base leading-7 text-white/65">
+        This page reflects the current behavior visible in the iOS app code reviewed for this website.
+      </p>
 
-        <div class="panel mt-12 p-8 sm:p-10">
-          <div class="prose prose-invert max-w-none prose-headings:font-display prose-headings:font-black prose-p:text-white/72 prose-li:text-white/72 prose-strong:text-white prose-a:text-therapist">
-            <h2>1. Information the app uses</h2>
-            <p>The current iOS app uses the following categories of information:</p>
-            <ul>
-              <li>Motion data while a focus session is active, so the app can detect when the phone is picked up.</li>
-              <li>Local session history, including session start and end times, duration, pickup count, selected voice pack, completion status, streak values, and the last spoken quote.</li>
-              <li>Preference data, such as the selected voice pack and preferred session duration.</li>
-              <li>Purchase state related to the one-time unlock for paid voice packs.</li>
-              <li>Usage analytics events such as app opens, session starts, pickups, session completion, voice pack selection, paywall views, purchases, and share activity.</li>
-            </ul>
-
-            <h2>2. How the information is used</h2>
-            <p>Put It Back uses this information to:</p>
-            <ul>
-              <li>run the focus timer and detect pickups during active sessions;</li>
-              <li>restore interrupted sessions and show remaining time;</li>
-              <li>display analytics, streaks, and result summaries inside the app;</li>
-              <li>enable and restore paid voice pack access through the App Store; and</li>
-              <li>understand product usage through analytics events.</li>
-            </ul>
-
-            <h2>3. Analytics and third-party services</h2>
-            <p>
-              The current iOS app code includes Firebase Analytics. Firebase Analytics is used for product and behavior events such as app opens, session starts, pickups, paywall views, purchases, and sharing actions. Your use of the app may therefore involve processing by Google Firebase under their applicable terms and privacy materials.
-            </p>
-
-            <h2>4. Purchases</h2>
-            <p>
-              Paid voice packs are handled through Apple's StoreKit and the App Store. Put It Back receives purchase and entitlement information needed to unlock paid content and restore that content when available. Payment details are handled by Apple, not entered directly into the app.
-            </p>
-
-            <h2>5. Local storage</h2>
-            <p>
-              Session history and session recovery details are stored locally on the device so the app can show analytics, remember preferences, and recover an active session. This includes session duration, selected voice pack, pickup count, streak information, and related result data.
-            </p>
-
-            <h2>6. Data sharing</h2>
-            <p>
-              Based on the current app implementation reviewed for this site, information may be shared with service providers involved in analytics and purchases, specifically Firebase Analytics and Apple. This page does not promise uses beyond the behavior visible in the current iOS codebase.
-            </p>
-
-            <h2>7. Your choices</h2>
-            <ul>
-              <li>You can decline motion access, but pickup detection will not function as intended.</li>
-              <li>You can manage app permissions through iOS Settings.</li>
-              <li>You can manage App Store purchases and restore transactions through Apple services and in-app restore flows where available.</li>
-            </ul>
-
-            <h2>8. Policy updates</h2>
-            <p>
-              This privacy page should be updated if the app's analytics stack, storage behavior, or purchase flows change. If those behaviors change materially, the website and app disclosure should be revised to match.
-            </p>
-
-            <h2>9. Contact</h2>
-            <p>
-              For privacy questions, use the support contact that accompanies the app distribution or website deployment for Put It Back.
-            </p>
-          </div>
+      <div class="mt-10 grid gap-4 sm:grid-cols-3">
+        <div class="panel p-5">
+          <p class="text-[0.68rem] font-black uppercase tracking-[0.24em] text-white/35">Motion</p>
+          <p class="mt-3 text-sm leading-6 text-white/68">Used during active focus sessions for pickup detection.</p>
         </div>
-      </section>
+        <div class="panel p-5">
+          <p class="text-[0.68rem] font-black uppercase tracking-[0.24em] text-white/35">Analytics</p>
+          <p class="mt-3 text-sm leading-6 text-white/68">Firebase Analytics is present in the current app implementation.</p>
+        </div>
+        <div class="panel p-5">
+          <p class="text-[0.68rem] font-black uppercase tracking-[0.24em] text-white/35">Purchases</p>
+          <p class="mt-3 text-sm leading-6 text-white/68">Paid voice pack unlocks are handled through Apple's StoreKit and App Store.</p>
+        </div>
+      </div>
+
+      <div class="panel mt-10 p-8">
+        <div class="prose prose-invert max-w-none prose-headings:font-display prose-headings:font-black prose-p:text-white/72 prose-li:text-white/72 prose-strong:text-white">
+          <h2>1. Information the app uses</h2>
+          <ul>
+            <li>Motion data while a focus session is active, so the app can detect pickups.</li>
+            <li>Local session history, including duration, pickup count, selected voice pack, completion state, streak values, and the last spoken line.</li>
+            <li>Preference data such as selected voice pack and preferred session duration.</li>
+            <li>Purchase state related to the one-time unlock for paid voice packs.</li>
+            <li>Usage analytics events for sessions, pickups, paywalls, purchases, and sharing.</li>
+          </ul>
+
+          <h2>2. How the information is used</h2>
+          <ul>
+            <li>To run focus sessions and detect when the phone is picked up.</li>
+            <li>To restore sessions and keep the remaining time accurate.</li>
+            <li>To show analytics, streaks, and result summaries in the app.</li>
+            <li>To enable and restore paid voice pack access through the App Store.</li>
+            <li>To understand product usage through analytics events.</li>
+          </ul>
+
+          <h2>3. Analytics</h2>
+          <p>
+            The current iOS app includes Firebase Analytics. Based on the reviewed code, Firebase Analytics is used for product events such as app opens, session starts, pickups, paywall views, purchases, and sharing actions.
+          </p>
+
+          <h2>4. Purchases</h2>
+          <p>
+            Paid voice packs are handled through Apple's StoreKit and the App Store. Payment details are handled by Apple, not entered directly into the app.
+          </p>
+
+          <h2>5. Local storage</h2>
+          <p>
+            Session history and session recovery details are stored locally on the device so the app can show analytics, remember preferences, and recover active sessions.
+          </p>
+
+          <h2>6. Your choices</h2>
+          <ul>
+            <li>You can decline motion access, but pickup detection will not work as intended.</li>
+            <li>You can manage app permissions through iOS Settings.</li>
+            <li>You can manage App Store purchases and restore transactions through Apple services and in-app restore flows where available.</li>
+          </ul>
+
+          <h2>7. Policy updates</h2>
+          <p>
+            This page should be updated if the app's analytics stack, storage behavior, or purchase flow changes.
+          </p>
+        </div>
+      </div>
     </main>
   </body>
 </html>
