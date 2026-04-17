@@ -15,11 +15,14 @@
     <meta name="author" content="Mosaic">
     <meta name="theme-color" content="#000000">
     <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta name="apple-itunes-app" content="app-id=6761619207">
     <link rel="canonical" href="https://putitback.app/">
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="app-icon-nobg.png">
+    <link rel="me" href="https://apps.apple.com/us/app/put-it-back-focus-coach/id6761619207">
     <meta property="og:site_name" content="Put It Back">
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://putitback.app/">
     <meta property="og:title" content="Put It Back | iPhone focus timer that notices pickups">
     <meta
@@ -27,7 +30,10 @@
       content="A focus timer for iPhone with motion-aware pickups, voice packs, streak tracking, and Live Activities."
     >
     <meta property="og:image" content="https://putitback.app/og-image.svg">
-    <meta property="og:image:alt" content="Put It Back website preview">
+    <meta property="og:image:type" content="image/svg+xml">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Put It Back — iPhone focus timer that notices pickups">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Put It Back | iPhone focus timer that notices pickups">
     <meta
@@ -35,6 +41,7 @@
       content="Drop the phone. Let the session hold."
     >
     <meta name="twitter:image" content="https://putitback.app/og-image.svg">
+    <meta name="twitter:image:alt" content="Put It Back — iPhone focus timer that notices pickups">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -129,23 +136,122 @@
         stroke-dasharray: 754;
         stroke-dashoffset: 754;
       }
+
+      .appstore-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 11px 18px;
+        border-radius: 12px;
+        background: #000;
+        color: #fff;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        text-decoration: none;
+        line-height: 1;
+      }
+      .appstore-badge:hover {
+        transform: translateY(-1px);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+      }
+      .appstore-badge__logo { height: 30px; width: 30px; }
+      .appstore-badge__copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+      }
+      .appstore-badge__pre {
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        opacity: 0.85;
+      }
+      .appstore-badge__title {
+        font-size: 21px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        margin-top: 1px;
+        font-family: -apple-system, "SF Pro Display", "SF Pro Rounded", system-ui, sans-serif;
+      }
+      .appstore-badge--compact {
+        padding: 7px 12px;
+        border-radius: 10px;
+      }
+      .appstore-badge--compact .appstore-badge__logo { height: 20px; width: 20px; }
+      .appstore-badge--compact .appstore-badge__pre { font-size: 8px; }
+      .appstore-badge--compact .appstore-badge__title { font-size: 14px; }
     </style>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
+        "@type": "MobileApplication",
         "name": "Put It Back",
+        "alternateName": "Put It Back: Focus Coach",
         "operatingSystem": "iOS",
         "applicationCategory": "ProductivityApplication",
         "url": "https://putitback.app/",
+        "installUrl": "https://apps.apple.com/us/app/put-it-back-focus-coach/id6761619207",
+        "downloadUrl": "https://apps.apple.com/us/app/put-it-back-focus-coach/id6761619207",
+        "image": "https://putitback.app/app-icon-nobg.png",
         "description": "Put It Back is an iPhone focus timer that detects phone pickups during a session, plays voice lines, tracks streaks, and shows the countdown with Live Activities.",
-        "publisher": { "@type": "Organization", "name": "Mosaic" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Mosaic",
+          "url": "https://putitback.app/"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
         "featureList": [
           "15, 25, and 45 minute focus sessions",
           "Motion-aware pickup detection",
           "Mom, Sergeant, and Therapist voice packs",
           "Live Activity countdown",
           "Session history, streaks, and analytics"
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Put It Back?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An iPhone focus timer. Pick a length, set the phone down, and the app tracks pickups while the timer runs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does it know I picked up the phone?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The app requests motion access during active sessions. Gravity and acceleration readings tell it when the phone leaves the table."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is free and what is paid?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mom is free. Sergeant and Therapist unlock together in a one-time purchase. No subscription."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What gets tracked?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Session records, pickup counts, completion state, streak info, selected voice pack, and last spoken line — all kept locally. Anonymized product events are sent to Firebase Analytics."
+            }
+          }
         ]
       }
     </script>
@@ -164,11 +270,22 @@
           <img src="app-icon-nobg.png" alt="" class="h-9 w-9 drop-shadow-[0_4px_14px_rgba(255,55,95,0.35)]">
           <span class="font-rounded text-[17px] font-extrabold tracking-tight text-white">Put It Back</span>
         </a>
-        <nav class="hidden items-center gap-7 text-[15px] md:flex">
-          <a class="muted-link" href="#demo">Session</a>
-          <a class="muted-link" href="#voice-packs">Voices</a>
-          <a class="muted-link" href="#faq">FAQ</a>
-          <a class="muted-link" href="privacy.html">Privacy</a>
+        <nav class="flex items-center gap-5 text-[15px] sm:gap-7">
+          <a class="muted-link hidden md:inline" href="#demo">Session</a>
+          <a class="muted-link hidden md:inline" href="#voice-packs">Voices</a>
+          <a class="muted-link hidden md:inline" href="#faq">FAQ</a>
+          <a class="muted-link hidden md:inline" href="privacy.html">Privacy</a>
+          <a
+            href="https://apps.apple.com/us/app/put-it-back-focus-coach/id6761619207"
+            class="appstore-badge appstore-badge--compact"
+            aria-label="Download Put It Back on the App Store"
+          >
+            <svg class="appstore-badge__logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.04c-.03-2.76 2.26-4.08 2.36-4.14-1.29-1.88-3.29-2.14-4-2.17-1.7-.17-3.32 1-4.19 1-.88 0-2.2-.98-3.62-.95-1.85.03-3.58 1.08-4.53 2.74-1.94 3.36-.49 8.33 1.38 11.06.92 1.33 2 2.83 3.42 2.78 1.38-.06 1.9-.89 3.56-.89 1.66 0 2.13.89 3.58.86 1.48-.02 2.42-1.35 3.32-2.7 1.05-1.55 1.48-3.05 1.5-3.13-.03-.01-2.86-1.1-2.89-4.37zM14.4 4.06c.75-.92 1.26-2.19 1.12-3.46-1.08.05-2.4.72-3.18 1.63-.7.8-1.32 2.09-1.15 3.33 1.21.09 2.45-.62 3.21-1.5z"/></svg>
+            <span class="appstore-badge__copy">
+              <span class="appstore-badge__pre">Download on the</span>
+              <span class="appstore-badge__title">App Store</span>
+            </span>
+          </a>
         </nav>
       </div>
     </header>
@@ -216,17 +333,22 @@
 
           <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
+              href="https://apps.apple.com/us/app/put-it-back-focus-coach/id6761619207"
+              class="appstore-badge"
+              aria-label="Download Put It Back on the App Store"
+            >
+              <svg class="appstore-badge__logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.04c-.03-2.76 2.26-4.08 2.36-4.14-1.29-1.88-3.29-2.14-4-2.17-1.7-.17-3.32 1-4.19 1-.88 0-2.2-.98-3.62-.95-1.85.03-3.58 1.08-4.53 2.74-1.94 3.36-.49 8.33 1.38 11.06.92 1.33 2 2.83 3.42 2.78 1.38-.06 1.9-.89 3.56-.89 1.66 0 2.13.89 3.58.86 1.48-.02 2.42-1.35 3.32-2.7 1.05-1.55 1.48-3.05 1.5-3.13-.03-.01-2.86-1.1-2.89-4.37zM14.4 4.06c.75-.92 1.26-2.19 1.12-3.46-1.08.05-2.4.72-3.18 1.63-.7.8-1.32 2.09-1.15 3.33 1.21.09 2.45-.62 3.21-1.5z"/></svg>
+              <span class="appstore-badge__copy">
+                <span class="appstore-badge__pre">Download on the</span>
+                <span class="appstore-badge__title">App Store</span>
+              </span>
+            </a>
+            <a
               href="#demo"
-              class="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[15px] font-bold text-black transition hover:bg-white/90"
+              class="group inline-flex items-center gap-2 rounded-full bg-white/[0.08] px-6 py-3.5 text-[15px] font-bold text-white transition hover:bg-white/[0.12]"
             >
               See a session
               <svg class="h-4 w-4 transition group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4l6 6-6 6"/></svg>
-            </a>
-            <a
-              href="#voice-packs"
-              class="inline-flex items-center gap-2 rounded-full bg-white/[0.08] px-6 py-3.5 text-[15px] font-bold text-white transition hover:bg-white/[0.12]"
-            >
-              Meet the voices
             </a>
           </div>
         </div>
@@ -407,8 +529,8 @@
             </div>
             <div>
               <div class="text-[11px] font-black uppercase tracking-[0.22em] text-white/40">Privacy</div>
-              <h2 class="mt-1 font-rounded text-[22px] font-black leading-tight">Exactly what the app does with your data.</h2>
-              <p class="mt-1 max-w-xl text-[15px] leading-[1.5] text-white/55">Motion access, local storage, the specific Firebase Analytics events, and StoreKit purchase flow — all spelled out.</p>
+              <h2 class="mt-1 font-rounded text-[22px] font-black leading-tight">Your sessions stay on your phone.</h2>
+              <p class="mt-1 max-w-xl text-[15px] leading-[1.5] text-white/55">No account, no cloud sync, no data sold. Motion access is only used while a session is running — the details are on the privacy page.</p>
             </div>
           </div>
           <a href="privacy.html" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-3 text-[14px] font-bold text-white transition hover:bg-white/15">
@@ -426,11 +548,12 @@
           <span class="font-semibold text-white/80">Put It Back</span>
           <span class="text-white/30">· Mosaic</span>
         </div>
-        <div class="flex flex-wrap gap-5">
+        <div class="flex flex-wrap items-center gap-5">
           <a class="muted-link" href="#demo">Session</a>
           <a class="muted-link" href="#voice-packs">Voices</a>
           <a class="muted-link" href="#faq">FAQ</a>
           <a class="muted-link" href="privacy.html">Privacy</a>
+          <a class="muted-link" href="https://apps.apple.com/us/app/put-it-back-focus-coach/id6761619207">App Store</a>
         </div>
       </div>
     </footer>
